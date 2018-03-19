@@ -42,7 +42,7 @@
         cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
-        cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. '.doc  ' . $outputHtmlFile, $returnvalue, $error);
+        cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. ' ' . $outputHtmlFile, $returnvalue, $error);
         print_r($error);
         print_r($returnvalue);
       $output = file_get_contents($outputHtmlFile, true);
