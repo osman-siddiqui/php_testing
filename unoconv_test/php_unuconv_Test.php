@@ -43,13 +43,13 @@
         cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
-        echo $testcommand;
+        //echo $testcommand;
         cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. '.doc  ' . $outputHtmlFile, $returnvalue, $error);
         print_r($error);
         print_r($returnvalue);
       $output = file_get_contents($outputHtmlFile, true);
       echo $output;
-      unlink($tempOutput);
+      unlink("$tempOutput.doc");
       return $output;
   }
   $docxfile ="HNSC-PTEN.docx";
