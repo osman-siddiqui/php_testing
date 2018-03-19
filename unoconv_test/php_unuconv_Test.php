@@ -1,7 +1,5 @@
 <?
-class phptest
-{
-private function cmd_exec($cmd, &$stdout, &$stderr)
+ function cmd_exec($cmd, &$stdout, &$stderr)
     {
         $outfile        = tempnam(".", "cmd");
         $errfile        = tempnam(".", "cmd");
@@ -36,7 +34,7 @@ private function cmd_exec($cmd, &$stdout, &$stderr)
         unlink($errfile);
         return $exit;
     }
-private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
+ function getNarrativebyWord($inputWordFile, $outputHtmlFile)
   {    /* uses cmd_exec to call java jar to convert word to html
        * call cmd_exec command and than return result
        * jar location is currently hardcoded
@@ -58,11 +56,8 @@ private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
       unlink($tempOutput);
       return $output;
   }
-
-}
-$docxfile ="HNSC-PTEN.docx";
-$htmlfile ="test.html";
-$this->getNarrativebyWord($docxfile, $htmlfile);
-
+  $docxfile ="HNSC-PTEN.docx";
+  $htmlfile ="test.html";
+  getNarrativebyWord($docxfile, $htmlfile);
 
 ?>
