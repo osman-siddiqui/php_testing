@@ -54,7 +54,7 @@
 
       $output = file_get_contents($outputHtmlFile, true);
       echo $output;
-      unlink($tempOutput. 'doc');
+      unlink($tempOutput);
       return $output;
   }
   $docxfile ="HNSC-PTEN.docx";
