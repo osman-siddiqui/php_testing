@@ -44,7 +44,7 @@
        */
        $uniqout=uniqid("out");
        $tempOutput = $uniqout;
-        cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
+        cmd_exec('/usr/bin/unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
 
@@ -54,7 +54,7 @@
 
       $output = file_get_contents($outputHtmlFile, true);
       echo $output;
-      unlink($tempOutput);
+      unlink($tempOutput. 'doc');
       return $output;
   }
   $docxfile ="HNSC-PTEN.docx";
