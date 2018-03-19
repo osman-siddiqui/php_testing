@@ -44,11 +44,11 @@
        */
        $uniqout=uniqid("out");
        $tempOutput = $uniqout.'doc';
-         $this->cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
+        cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
 
-        $this->cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. '  ' . $outputHtmlFile, $returnvalue, $error);
+        cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. '  ' . $outputHtmlFile, $returnvalue, $error);
 
       $output = file_get_contents($outputHtmlFile, true);
       echo $output;
