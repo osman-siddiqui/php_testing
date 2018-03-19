@@ -1,5 +1,4 @@
 <?php
-
  function cmd_exec($cmd, &$stdout, &$stderr)
     {
         $outfile        = tempnam(".", "cmd");
@@ -21,16 +20,12 @@
             )
         );
         $proc           = proc_open($cmd, $descriptorspec, $pipes);
-
         if (!is_resource($proc))
             return 255;
-
         fclose($pipes[0]); //Don't really want to give any input
-
         $exit   = proc_close($proc);
         $stdout = file($outfile);
         $stderr = file($errfile);
-
         unlink($outfile);
         unlink($errfile);
         return $exit;
@@ -47,18 +42,15 @@
         cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
-
         cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. '.doc  ' . $outputHtmlFile, $returnvalue, $error);
         print_r($error);
         print_r($returnvalue);
-
       $output = file_get_contents($outputHtmlFile, true);
       echo $output;
-      //unlink($tempOutput);
+      unlink($tempOutput);
       return $output;
   }
   $docxfile ="HNSC-PTEN.docx";
   $htmlfile ="test.html";
   getNarrativebyWord($docxfile, $htmlfile);
-
 ?>
