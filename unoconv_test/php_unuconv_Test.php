@@ -44,7 +44,7 @@
        */
        $uniqout=uniqid("out");
        $tempOutput = $uniqout;
-        cmd_exec('/usr/bin/unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
+        cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
 
