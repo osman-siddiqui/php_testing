@@ -37,12 +37,14 @@
        * print_r is php function to Prints human-readable information about a variable
        * file_get_contents — Reads entire file into a string
        */
+       $testcommand="'java -jar wordtohtml.jar ' .  $tempOutput. '.doc  ' . $outputHtmlFile, $returnvalue, $error";
        $uniqout=uniqid("out");
        $tempOutput = $uniqout;
         cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
-        cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. ' ' . $outputHtmlFile, $returnvalue, $error);
+        echo $testcommand;
+        cmd_exec('java -jar wordtohtml.jar ' .  $tempOutput. '.doc  ' . $outputHtmlFile, $returnvalue, $error);
         print_r($error);
         print_r($returnvalue);
       $output = file_get_contents($outputHtmlFile, true);
