@@ -43,7 +43,7 @@
        * file_get_contents — Reads entire file into a string
        */
        $uniqout=uniqid("out");
-       $tempOutput = $uniqout.'doc';
+       $tempOutput = $uniqout;
         cmd_exec('unoconv -f doc -o ' . $tempOutput . '  ' .$inputWordFile, $returnvalue, $error);
              print_r($error);
              print_r($returnvalue);
